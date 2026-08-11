@@ -1,5 +1,14 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <title>Plaintext to Card</title>
+    <style>
+        canvas {
+            width: 366px;
+            height: 468px;
+        }
+    </style>
+</head>
 <body>
     <label for="plaintext">
         Input card plaintext here
@@ -21,7 +30,14 @@ Exhaust — Waterbend {20}: Take an extra turn after this one. (While paying a wat
         Parse
     </button>
     <textarea id="tempOutput" rows="10" cols="100"></textarea>
+    <canvas id="cardCanvas" width="672" height="936">
+
+    </canvas>
+    <button type="button" onclick="drawCard()">
+        Draw
+    </button>
     <script src="card.js"></script>
     <script src="parseInput.js"></script>
+    <script src="drawCard.js"></script>
 </body>
 </html>

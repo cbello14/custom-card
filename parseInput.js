@@ -1,11 +1,13 @@
+const cards = [];
 /**
  * Splits the text in the input field (designed for a single card to be input)
  */
 function splitInput() {
     const plaintext = document.getElementById("plaintext");
+    const tempOutput = document.getElementById("tempOutput");
+    const cardCanvas = document.getElementById("cardCanvas");
     const text = plaintext.value;
     const separateCards = text.split("\n----\n");
-    const cards = [];
     for (let card of separateCards) {
         // remove whitespace in case of formatting errors
         card = card.trim();
@@ -18,8 +20,9 @@ function splitInput() {
         cards.push(new Card(temp[0], temp[1], temp[2]));
     }
     // temporary output
+    tempOutput.innerHTML = "";
     for (const card of cards) {
-        document.getElementById("tempOutput").innerHTML += card.output();
-        document.getElementById("tempOutput").innerHTML += "\n----\n";
+        tempOutput.innerHTML += card.output();
+        tempOutput.innerHTML += "\n----\n";
     }
 }
